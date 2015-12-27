@@ -18,7 +18,7 @@
 		<!-- Dependency properties: -->
 		<thymeleaf.version>2.1.2.RELEASE</thymeleaf.version>
 		<!-- Plugin test server port properties: -->
-		<tomcat.port>8070</tomcat.port>
+		<tomcat.port>8071</tomcat.port>
 
 	</properties><!-- Dependencies: -->
 	<dependencies>
@@ -146,6 +146,13 @@
 			<version>0.3.RELEASE</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>3.0.5</version>
+		</dependency>
+
+
 	</dependencies>
 
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import pl.rafalpieniazek.shop.model.user.User;
 import pl.rafalpieniazek.shop.repo.base_repo.IBaseRepo;
+import pl.rafalpieniazek.shop.repo.user.impl.UsersCriteriaBuilder;
 import pl.rafalpieniazek.shop.service.user.IUserService;
 
 @Service
@@ -21,7 +22,6 @@ public class UserService implements IUserService{
 	@Override
 	public void save(User user) {
 		userRepo.save(user);
-		
 	}
 
 	@Override
@@ -44,5 +44,10 @@ public class UserService implements IUserService{
 		return userRepo.findAll();
 	}
 
-	
+	@Override
+	public List userQuery(String name){
+		return UsersCriteriaBuilder.findAll().withUserName(name).
+				build().
+				list();
+	}
 }

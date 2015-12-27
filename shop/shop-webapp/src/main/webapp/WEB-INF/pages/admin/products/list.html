@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="templates/admin_template" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista produktów</title>
+</head>
+<body>
+
+<div id="page-wrapper" layout:fragment="content">
+
+    <h1>Lista produktów</h1>
+
+    <table>
+        <tr>
+            <th>nazwa</th>
+            <th>marka</th>
+            <th>model</th>
+            <th>ilosc</th>
+            <th>nazwa kategori</th>
+            <th>data dodania</th>
+        </tr>
+        <tr th:each="prod : ${products}">
+            <td th:text="${prod.name}">Onions</td>
+            <td th:text="${prod.brand}">2.41</td>
+            <td th:text="${prod.model}">2.41</td>
+            <td th:text="${prod.quantity}">2.41</td>
+            <td th:text="${prod.category.name}">2.41</td>
+            <td th:text="${prod.createdAt}">2.41</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

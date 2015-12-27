@@ -44,4 +44,5 @@ public class CategoryRepo implements IBaseRepo<Category> {
 		return session.getCurrentSession().createCriteria(Category.class).list();
 	}
 
+
 }
