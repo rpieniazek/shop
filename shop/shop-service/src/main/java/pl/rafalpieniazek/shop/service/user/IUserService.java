@@ -7,13 +7,15 @@ import pl.rafalpieniazek.shop.model.user.User;
 
 public interface IUserService {
 	
-public void save(User user);
+ 	void save(User user);
 	
-	public void delete(User user);
+	 void delete(User user);
 	
-	public void update(User user);
+	 void update(User user);
 	
-	public User getById (long id);
+	 User getById (long id);
 	
-	public List<User> findAll();
+	 List<User> findAll();
+
+	List userQuery(String name);
 }

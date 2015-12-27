@@ -22,9 +22,10 @@ import pl.rafalpieniazek.shop.model.order.OrderDetail;
 @Entity
 @Table(name="products")
 public class Product {
-	
-	
-	
+
+	public Product() {
+	}
+
 	public Product(String name, int quantity) {
 		super();
 		this.name = name;

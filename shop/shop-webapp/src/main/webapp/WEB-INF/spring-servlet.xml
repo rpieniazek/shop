@@ -15,7 +15,7 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
             ignore-default-model-on-redirect="true"/>
 
     <mvc:default-servlet-handler/>
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/**" location="/resources/"/>
 
     <bean
             class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -25,39 +25,30 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
         </property>
     </bean>
 
-
-    <bean id="viewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
+        <property name="suffix" value=".html"/>
+        <property name="templateMode" value="HTML5"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="cacheable" value="false"/>
     </bean>
 
-
-    <!-- Thymeleaf konfiguracja resolverów: -->
-    <!-- <bean id="templateResolver"
-        class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
-        <property name="prefix" value="/pages/" />
-        <property name="suffix" value=".html" />
-        <property name="templateMode" value="HTML5" />
-        <property name="characterEncoding" value="UTF-8" />
-        <property name="cacheable" value="false" />
+    <bean id="templateViewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="contentType" value="text/html; charset=UTF-8"/>
     </bean>
 
-    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
-        <property name="templateEngine" ref="templateEngine" />
-        <property name="characterEncoding" value="UTF-8" />
-        <property name="contentType" value="text/html; charset=UTF-8" />
-    </bean>
 
     <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
-        <property name="templateResolver" ref="templateResolver" />
+        <property name="templateResolver" ref="templateResolver"/>
         <property name="additionalDialects">
             <set>
-                <bean class="nz.net.ultraq.thymeleaf.LayoutDialect" />
+                <bean class="nz.net.ultraq.thymeleaf.LayoutDialect"/>
             </set>
         </property>
     </bean>
- -->
+
 
 
 </beans>
