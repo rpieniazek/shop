@@ -12,7 +12,6 @@
 		<module>shop-repo</module>
 		<module>shop-service</module>
 		<module>shop-webapp</module>
-		<module>shop-i18n</module>
 	</modules>
 
 	<profiles>
