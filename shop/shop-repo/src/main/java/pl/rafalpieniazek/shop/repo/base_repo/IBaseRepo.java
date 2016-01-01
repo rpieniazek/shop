@@ -14,7 +14,6 @@ public interface IBaseRepo<T> {
 
     public List<T> findAll();
 
-
 }
 
 

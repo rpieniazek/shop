@@ -15,4 +15,5 @@ public void save(Category category);
 	public Category getById (long id);
 	
 	public List<Category> findAll();
+
 }

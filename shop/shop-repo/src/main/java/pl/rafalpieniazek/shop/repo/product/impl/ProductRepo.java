@@ -47,11 +47,12 @@ public class ProductRepo implements IBaseRepo<Product> {
 	@Override
 	public List<Product> findAll() {
 		Criteria criteria = session.getCurrentSession().createCriteria(Product.class);
+		criteria.createAlias("category", "category");
 		criteria.setFetchMode("category", FetchMode.JOIN);
 
 		return criteria.list();
 	}
-	
+
 	public void test(){
 		Criteria criteria = session.getCurrentSession().createCriteria(Product.class);
 	}

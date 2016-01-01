@@ -17,6 +17,8 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
     <mvc:default-servlet-handler/>
     <mvc:resources mapping="/**" location="/resources/"/>
 
+
+
     <bean
             class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="webBindingInitializer">
@@ -49,6 +51,13 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
         </property>
     </bean>
 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages" />
+    </bean>
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="pl" />
+    </bean>
 
 
 </beans>

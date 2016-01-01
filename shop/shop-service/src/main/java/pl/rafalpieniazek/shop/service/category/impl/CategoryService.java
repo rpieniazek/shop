@@ -42,6 +42,6 @@ public class CategoryService implements ICategoryService{
 	public List<Category> findAll() {
 		return categoryRepo.findAll();
 	}
-	
+
 
 }

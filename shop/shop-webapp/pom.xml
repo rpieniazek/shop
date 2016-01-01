@@ -18,7 +18,7 @@
 		<!-- Dependency properties: -->
 		<thymeleaf.version>2.1.2.RELEASE</thymeleaf.version>
 		<!-- Plugin test server port properties: -->
-		<tomcat.port>8071</tomcat.port>
+		<tomcat.port>8080</tomcat.port>
 
 	</properties><!-- Dependencies: -->
 	<dependencies>

@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,8 @@ import pl.rafalpieniazek.shop.model.order.OrderDetail;
 
 @Entity
 @Table(name="products")
+@Getter
+@Setter
 public class Product {
 
 	public Product() {
@@ -34,49 +37,36 @@ public class Product {
 
 	@Id
 	@GeneratedValue
-	@Getter
 	@Column(name="id_product")
 	private Long Id;
-	
-	@Getter
-	@Setter
+
+	@NotNull
 	private String name;
-	
-	@Getter
-	@Setter
+
+	@NotNull
 	private String description;
-	
-	@Getter
-	@Setter
+
+	@NotNull
 	private Blob image;
-	
-	@Getter
-	@Setter
+
+	@NotNull
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_category")
 	private Category category;
-	
-	//quantity//ilosc
-	@Getter
-	@Setter
+
+	@NotNull
 	private int quantity;
-	
-	@Getter
-	@Setter
+
+	@NotNull
 	private String brand;
-	
-	@Getter
-	@Setter
+
+	@NotNull
 	private String model;
-	
-	@Getter
-	@Setter
+
 	private Date createdAt;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	@Getter
-	@Setter
 	private OrderDetail orderDetail;
 	
 }
