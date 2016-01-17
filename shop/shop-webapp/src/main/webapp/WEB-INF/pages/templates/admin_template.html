@@ -59,14 +59,30 @@
                 <ul class="nav in" id="side-menu">
 
 
+                    <li>
+                        <a th:href="@{/admin/products/list}">
+                            <i class="fa fa-list"></i>
 
-                    <li><a th:href="@{/admin/products/list}"><i class="fa fa-plus fa-fw"></i>
-                        wyświetl listę produktów</a>
+                            wyświetl listę produktów
+                        </a>
                     </li>
 
-                    <li><a th:href="@{/admin/products/add}"><i class="fa fa-plus fa-fw"></i>
-                       dodaj produkt</a>
+                    <li>
+                        <a th:href="@{/admin/products/add}">
+                            <i class="fa fa-plus fa-fw"></i>
+
+                            dodaj produkt
+                        </a>
                     </li>
+
+                    <li>
+                        <a th:href="@{/admin/products/report}">
+                            <i class="fa fa-flag"></i>
+
+                            generuj raport o produktach
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>

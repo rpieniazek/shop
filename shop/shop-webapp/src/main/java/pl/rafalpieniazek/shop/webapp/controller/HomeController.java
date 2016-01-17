@@ -19,32 +19,16 @@ import java.util.List;
 @Log4j
 public class HomeController {
 
-    @Autowired
-    private IProductService productService;
-
-    @Autowired
-    private IUserService userService;
 
     @RequestMapping(value = {"", "/"})
     public String home() {
-        productService.save(new Product("Pierwszy", 1));
-
-        //productService.save(new Product("Drugi", 2));
-        //System.out.println("HOMECONTROLER ");
         return "index";
     }
 
 
     @RequestMapping(value = {"/admin", "/admin/"})
     public String adminHome() {
-
         return "admin/index";
-    }
-    @RequestMapping(value = {"/rafal", "/rafal/"})
-    public String rafal(Model model){
-       List<User> usersList =  userService.userQuery("rafal");
-        model.addAttribute(usersList);
-        return "rafal";
     }
 }
 
