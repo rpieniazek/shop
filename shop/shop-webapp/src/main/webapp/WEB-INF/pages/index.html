@@ -2,14 +2,36 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
+  <style>
+      .info{
+          text-align: center
+      }
+
+  </style>
 <body>
-<!--<link th:href="@{~/resources/rafal.css}" rel="stylesheet" />-->
-<!--<link th:href="@{~/css/rafal.css}" rel="stylesheet" media="screen"></link>-->
-<link th:href="@{/resources/rafal.css}" rel="stylesheet" media="screen"/>
-<form action="/admin/">
-    <input type="submit" value="Przejdz do panelu adminstracyjnego"/>
-</form>
+        <div class="container">
+
+
+            <div class="jumbotron col-md-8 info">
+               <h3 > Projekt wykonany na przedmiot Bazy Danych 2. </h3>
+                <h4>Implementacja aplikacji bazodanowej do obsługi sklepu internetowego.</h4>
+                <h4> Rafał Pieniążek</h4>
+                <h4> Wojciech Wojtysiak </h4>
+                <h5> rafalpieniazek.pl:8080/shop</h5>
+                <h5> 151.80.115.34:8080/shop</h5>
+            </div>
+         </div>
+
+        <div class="container">
+
+            <div class="col-md-6">
+                <a th:href="@{/admin/}" class="btn btn-info" role="button">Przejdz do panelu adminstracyjnego</a>
+            </div>
+        </div>
+
 </body>
 </html>

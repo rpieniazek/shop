@@ -11,25 +11,40 @@
 <div id="page-wrapper" layout:fragment="content">
 
     <h1>Lista produktów</h1>
+        <table class="table table-hover" >
+            <tr>
+                <th>nazwa</th>
+                <th>marka</th>
+                <th>model</th>
+                <th>ilosc</th>
+                <th>nazwa kategori</th>
+                <th>data dodania</th>
+                <th>edytuj</th>
+                <th>usuń</th>
+            </tr>
+            <tr th:each="prod : ${products}">
+                <td th:text="${prod.name}">Onions</td>
+                <td th:text="${prod.brand}">2.41</td>
+                <td th:text="${prod.model}">2.41</td>
+                <td th:text="${prod.quantity}">2.41</td>
+                <td th:text="${prod.category.name}">2.41</td>
+                <td th:text="${prod.createdAt}">2.41</td>
 
-    <table>
-        <tr>
-            <th>nazwa</th>
-            <th>marka</th>
-            <th>model</th>
-            <th>ilosc</th>
-            <th>nazwa kategori</th>
-            <th>data dodania</th>
-        </tr>
-        <tr th:each="prod : ${products}">
-            <td th:text="${prod.name}">Onions</td>
-            <td th:text="${prod.brand}">2.41</td>
-            <td th:text="${prod.model}">2.41</td>
-            <td th:text="${prod.quantity}">2.41</td>
-            <td th:text="${prod.category.name}">2.41</td>
-            <td th:text="${prod.createdAt}">2.41</td>
-        </tr>
-    </table>
+                <td>
+                    <a th:href="@{/admin/products/edit/__${prod.Id}__}">
+                        <i class="fa fa-pencil-square"></i>
+                    </a>
+                </td>
+
+                <td>
+                    <a th:href="@{/admin/products/delete/__${prod.Id}__}">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+
+            </tr>
+        </table>
+
 </div>
 
 </body>

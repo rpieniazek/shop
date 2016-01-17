@@ -1,5 +1,6 @@
 package pl.rafalpieniazek.shop.service.product.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import pl.rafalpieniazek.shop.model.product.Product;
 import pl.rafalpieniazek.shop.repo.base_repo.IBaseRepo;
+import pl.rafalpieniazek.shop.repo.product.IProductRepo;
+import pl.rafalpieniazek.shop.repo.product.impl.ProductReportDTO;
 import pl.rafalpieniazek.shop.service.product.IProductService;
 
 @Transactional(rollbackOn=Exception.class)
@@ -16,7 +19,7 @@ import pl.rafalpieniazek.shop.service.product.IProductService;
 public class ProductService implements IProductService {
 
 	@Autowired
-	private IBaseRepo<Product> productRepo;
+	private IProductRepo productRepo;
 	
 	@Override
 	public void save(Product product) {
@@ -26,6 +29,12 @@ public class ProductService implements IProductService {
 	@Override
 	public void delete(Product product) {
 		productRepo.delete(product);
+
+	}
+
+	@Override
+	public void delete(Long productId) {
+		productRepo.delete(productId);
 
 	}
 
@@ -44,6 +53,15 @@ public class ProductService implements IProductService {
 		return productRepo.findAll();
 	}
 
+	@Override
+	public List<ProductReportDTO> report() {
+		List<Object> objectsList =  productRepo.report();
+		List<ProductReportDTO> result = new ArrayList<>(objectsList.size());
+		for (Object o : objectsList) {
+			result.add((ProductReportDTO) o);
+		}
+		return result;
+	}
 
 
 }

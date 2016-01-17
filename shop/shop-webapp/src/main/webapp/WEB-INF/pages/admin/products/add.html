@@ -8,84 +8,86 @@
 </head>
 <body>
 
-<div id="page-wrapper" layout:fragment="content">
+<div id="page-wrapper" layout:fragment="content" >
 
     <h1>Dodaj produkt:</h1>
+    <div class="col-md-6">
+        <form th:object="${productForm}"  th:action=" *{Id} != null  ? @{/admin/products/edit}  : @{/admin/products/add}"  method="POST">
+            <input type="hidden" th:field="*{Id}" data-filename-placement="inside"/>
 
-    <form th:object="${productForm}" th:action="@{/admin/products/add}" method="POST">
-        <div class = "errors" th:if="${#fields.hasErrors('*')}">
-            <ul>
-                <li th:each="err : ${#fields.errors('*')}" th:text = "${err}" >
-                    Dane wejściowe są niepoprawne
-                </li>
-            </ul>
+            <div class = "errors alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                <ul>
+                    <li th:each="err : ${#fields.errors('*')}" th:text = "${err}" >
+                        Dane wejściowe są niepoprawne
+                    </li>
+                </ul>
 
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                    <label th:text="#{product.name}"></label>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <label th:text="#{product.name}"></label>
+                        <input
+                            th:field="*{name}" type="text" class="form-control"
+                            th:placeholder="#{product.name}"
+                            th:value="*{name}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <label th:text="#{product.category}"></label>
+                        <select th:field="*{categoryId}" class="form-control">
+                            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label th:text="#{product.description}"></label>
                     <input
-                        th:field="*{name}" type="text" class="form-control"
-                        th:placeholder="#{product.name}"
-                        th:value="*{name}" />
+                            th:field="*{description}" type="text" class="form-control"
+                            th:placeholder="#{product.description}"
+                            th:value="*{description}" />
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                    <label th:text="#{product.category}"></label>
-                    <select th:field="*{categoryId}" class="form-control">
-                        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
-                    </select>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label th:text="#{product.quantity}"></label>
+                    <input
+                            th:field="*{quantity}" type="text" class="form-control"
+                            th:placeholder="#{product.quantity}"
+                            th:value="*{quantity}" />
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <label th:text="#{product.description}"></label>
-                <input
-                        th:field="*{description}" type="text" class="form-control"
-                        th:placeholder="#{product.description}"
-                        th:value="*{description}" />
+            <div class="row">
+                <div class="col-md-12">
+                    <label th:text="#{product.brand}"></label>
+                    <input
+                            th:field="*{brand}" type="text" class="form-control"
+                            th:placeholder="#{product.brand}"
+                            th:value="*{brand}" />
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <label th:text="#{product.quantity}"></label>
-                <input
-                        th:field="*{quantity}" type="text" class="form-control"
-                        th:placeholder="#{product.quantity}"
-                        th:value="*{quantity}" />
+            <div class="row">
+                <div class="col-md-12">
+                    <label th:text="#{product.model}"></label>
+                    <input
+                            th:field="*{model}" type="text" class="form-control"
+                            th:placeholder="#{product.model}"
+                            th:value="*{model}" />
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <label th:text="#{product.brand}"></label>
-                <input
-                        th:field="*{brand}" type="text" class="form-control"
-                        th:placeholder="#{product.brand}"
-                        th:value="*{brand}" />
+            <div class="col-md-6">
+                <button class="btn btn-two pull-right" type="submit"
+                        th:text="#{product.submit}"></button>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <label th:text="#{product.model}"></label>
-                <input
-                        th:field="*{model}" type="text" class="form-control"
-                        th:placeholder="#{product.model}"
-                        th:value="*{model}" />
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <button class="btn btn-two pull-right" type="submit"
-                    th:text="#{product.submit}"></button>
-        </div>
-
-    </form>
-
+        </form>
+    </div>
 </div>
 
 </body>
