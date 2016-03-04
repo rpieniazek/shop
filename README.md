@@ -41,7 +41,7 @@ Usage
 After building and running application will work on localhost:8080 .
 ```
 
-You can get access to administration page with those credentials:
+You can get access to administration page with those credentials: 
 ```
 login : shop
 password : 123456
