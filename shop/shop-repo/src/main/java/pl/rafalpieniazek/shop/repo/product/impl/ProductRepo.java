@@ -60,7 +60,6 @@ public class ProductRepo implements IProductRepo {
 	@Override
 	public List<Product> findAll() {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Product.class);
-		criteria.createAlias("category", "category");
 		criteria.setFetchMode("category", FetchMode.JOIN);
 
 		return criteria.list();

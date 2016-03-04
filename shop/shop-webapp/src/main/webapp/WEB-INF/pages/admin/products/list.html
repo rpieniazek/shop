@@ -22,7 +22,9 @@
                 <th>edytuj</th>
                 <th>usuń</th>
             </tr>
+
             <tr th:each="prod : ${products}">
+
                 <td th:text="${prod.name}">Onions</td>
                 <td th:text="${prod.brand}">2.41</td>
                 <td th:text="${prod.model}">2.41</td>

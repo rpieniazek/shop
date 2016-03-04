@@ -16,7 +16,7 @@ import pl.rafalpieniazek.shop.service.product.impl.ProductService;
 import pl.rafalpieniazek.shop.webapp.form.ProductForm;
 
 import javax.validation.Valid;
-import java.sql.Date;
+
 import java.util.List;
 
 @Controller
@@ -104,9 +104,6 @@ public class ProductController {
 	@RequestMapping(value={"/report","/report/"}, method = RequestMethod.GET)
 	public String report(Model model){
 		List<ProductReportDTO>	reportList = productService.report();
-
-			System.out.println(reportList.get(0).getCategory());
-
 		model.addAttribute(reportList);
 		return "admin/products/report";
 	}
