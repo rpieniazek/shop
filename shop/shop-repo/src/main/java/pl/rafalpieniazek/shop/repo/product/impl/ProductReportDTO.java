@@ -12,6 +12,6 @@ public class ProductReportDTO {
 
     private String category;
 
-    private int occurences;
+    private Long occurences;
 
 }

@@ -56,9 +56,13 @@ public class ProductService implements IProductService {
 	@Override
 	public List<ProductReportDTO> report() {
 		List<Object> objectsList =  productRepo.report();
-		List<ProductReportDTO> result = new ArrayList<>(objectsList.size());
-		for (Object o : objectsList) {
-			result.add((ProductReportDTO) o);
+		List<ProductReportDTO> result = new ArrayList<>();
+		for (Object object : objectsList) {
+			Object[] row = (Object[]) object;
+			ProductReportDTO report = new ProductReportDTO();
+			report.setOccurences((Long) row[0]);
+			report.setCategory((String) row[1]);
+			result.add(report);
 		}
 		return result;
 	}
