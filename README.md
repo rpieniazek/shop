@@ -5,12 +5,12 @@ Online Shop based on Spring Framework
 This is student project in the subject Data Base at Wroclaw University Of Technology.
 
 Technologies used:
-* [Spring MVC
-* [Spring Security 
-* [Hibernate
-* [Thymeleaf
-* [Bootstrap
-* [Maven to build
+* Spring MVC
+* Spring Security 
+* Hibernate
+* Thymeleaf
+* Bootstrap
+* Maven to build
 
 
 Installation
